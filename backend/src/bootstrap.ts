@@ -7,6 +7,10 @@ export function configureApp(app: INestApplication) {
   app.setGlobalPrefix('api');
   app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
   app.use(cookieParser());
-  app.enableCors({ origin(origin: string | undefined, callback: (error: Error | null, allow?: boolean) => void) { if (!origin || allowed.includes(origin)) return callback(null, true); callback(new Error('Origin not allowed'), false); }, credentials: true, methods: ['GET','POST','PUT','PATCH','DELETE','OPTIONS'], allowedHeaders: ['Content-Type','X-CSRF-Token'] });
+  app.enableCors({ origin(origin: string | undefined, callback: (error: Error | null, allow?: boolean) => void) { if (!origin || allowed.includes(origin)) return callback(null, true); callback(new Error('Origin not allowed'), false); }, credentials: true, methods: ['GET','POST','PUT','PATCH','DELETE','OPTIONS'], allowedHeaders: [
+  'Content-Type',
+  'X-CSRF-Token',
+  'Authorization',
+] });
   app.useGlobalPipes(new ValidationPipe({ transform: true, whitelist: true }));
 }
