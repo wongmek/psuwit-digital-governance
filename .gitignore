@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.env
+.env.local
+.vercel/
+coverage/
+*.log
+*.tsbuildinfo
+.DS_Store
+frontend/.env.production
+frontend/vite.config.js
+frontend/vite.config.d.ts
+backend/tmp/

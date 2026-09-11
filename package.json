@@ -1,0 +1,25 @@
+{
+  "name": "psuwit-digital-governance",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": ["frontend", "backend"],
+  "scripts": {
+    "dev:frontend": "npm --workspace frontend run dev",
+    "dev:backend": "npm --workspace backend run dev",
+    "build": "npm run build:backend && npm run build:frontend",
+    "build:frontend": "npm --workspace frontend run build",
+    "build:backend": "npm --workspace backend run build",
+    "test": "npm --workspace backend run test"
+  },
+  "dependencies": {
+    "multer": "2.3.0"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "overrides": {
+    "@nestjs/platform-express": {
+      "multer": "$multer"
+    }
+  }
+}
